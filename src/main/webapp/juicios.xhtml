@@ -11,9 +11,125 @@
 </h:head>
 <h:body>
 	
-	<h2 style="text-align: center;">Juicios Bufete Martínez Reyna</h2>
+	<h2 style="text-align: center; text-transform: uppercase;">Juicios Bufete Martínez Reyna</h2>
 	
-	
+	<h:form id="formLogin">
+		
+		<p:outputPanel deferred="true">
+			<h3>Descripción</h3>
+			<p>Lista de juicios del Bufete Martínez Reyna que se llevan a cabo en las diferentes Juntas Especiales de 
+			la Junta Federal de Conciliación y Arbitraje. Muestra el detalle de los juicios que se llevan a cabo.</p>
+		</p:outputPanel>
+		
+		<p:accordionPanel>
+			<p:tab title="Junta Especial 1">
+				
+				<p:outputPanel deferred="true">
+					<h3>Contenido de Juicios de la Junta Especial 1</h3>					
+				</p:outputPanel>
+				<p:dataTable id="tlbJuicios" var="juicio" value="#{juicioController.juicios}" rows="5"
+					paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {Exporters}"
+					currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros" reflow="true"
+					rowsPerPageTemplate="5,10,15" draggableColumns="true" emptyMessage="No existen registros" paginatorPosition="bottom"
+					filteredValue="#{juicioController.juiciosFiltrados}">
+					
+					<f:facet name="{Exporters}">						
+						<div style="float:right;padding-top: 5px; padding-right: 10px;">							
+							<h:commandLink>
+								<p:graphicImage name="images/excel.png" width="24"/>
+				                <p:dataExporter type="xls" target="tlbJuicios" fileName="ReporteJuicios" />
+				            </h:commandLink>
+				                 
+				            <h:commandLink>
+				                <p:graphicImage name="images/xlsx.png" width="24"/>
+				                <p:dataExporter type="xlsxstream" target="tlbJuicios" fileName="ReporteJuicios" />
+				            </h:commandLink>
+				 
+				            <h:commandLink>
+				                <p:graphicImage name="images/pdf.png" width="24"/>
+				                <p:dataExporter type="pdf" target="tlbJuicios" fileName="ReporteJuicios"/>
+				            </h:commandLink>
+				 
+				            <h:commandLink>
+				                <p:graphicImage name="images/csv.png" width="24"/>
+				                <p:dataExporter type="csv" target="tlbJuicios" fileName="ReporteJuicios" />
+				            </h:commandLink>
+				 
+				            <h:commandLink>
+				                <p:graphicImage name="images/xml.png" width="24"/>
+				                <p:dataExporter type="xml" target="tlbJuicios" fileName="ReporteJuicios" />
+				            </h:commandLink>
+				                                   
+			            </div>
+	        		</f:facet>
+								
+					<p:column headerText="Id Juicio" filterBy="#{juicio.idJuicio}" filterMatchMode="contains" sortBy="#{juicio.idJuicio}">
+						<p:outputLabel value="#{juicio.idJuicio}"></p:outputLabel>
+					</p:column>
+					<p:column headerText="Descripción" filterBy="#{juicio.parteActora.nombre}" filterMatchMode="contains" sortBy="#{juicio.parteActora.nombre}">
+						<span style="text-transform: uppercase; font-weight: bold;"><p:outputLabel value="#{juicio.parteActora.apellidoPaterno} #{juicio.parteActora.apellidoMaterno} #{juicio.parteActora.nombre}"></p:outputLabel></span>
+						<p:outputLabel style="text-transform: uppercase; font-style: italic;" value=" vs "></p:outputLabel>
+						<span style="text-transform: uppercase; font-weight: bold;"><p:outputLabel value="#{juicio.parteDemandada}"></p:outputLabel></span>						
+					</p:column>
+					<p:column headerText="Expediente" style="text-align: center;" filterBy="#{juicio.expediente}" filterMatchMode="contains" sortBy="#{juicio.expediente}">
+						<p:outputLabel value="#{juicio.expediente}"></p:outputLabel>						
+					</p:column>
+					<p:column headerText="Cuantificación">
+						<p:outputLabel value="$"></p:outputLabel>
+						<p:outputLabel value="#{juicio.cuantificacion}"></p:outputLabel>
+						<br/>
+						<p:outputLabel value="PROBABILIDAD: "></p:outputLabel>
+						<p:outputLabel value="#{juicio.probabilidad}"></p:outputLabel>						
+					</p:column>					
+					<p:column headerText="Observaciones" filterBy="#{juicio.observaciones}" filterMatchMode="contains" sortBy="#{juicio.observaciones}">
+						<ul>
+							<li><p:outputLabel value="#{juicio.observaciones}"></p:outputLabel></li>
+						</ul>						
+					</p:column>
+					<p:column headerText="Estado Procesal" style="text-align: center;" filterBy="#{juicio.estadoProcesal.descripcion}" filterMatchMode="contains" sortBy="#{juicio.estadoProcesal.descripcion}">
+						<strong><p:outputLabel value="#{juicio.estadoProcesal.descripcion}"></p:outputLabel></strong>						
+					</p:column>					
+				</p:dataTable>
+				
+			</p:tab>
+			<p:tab title="Junta Especial 2">
+			
+				<p:outputPanel deferred="true">
+					<h3>Contenido de Juicios de la Junta Especial 2</h3>
+				</p:outputPanel>
+				<p:dataTable>
+					<p:column headerText="Expediente"></p:column>
+					<p:column headerText="Observaciones"></p:column>
+					<p:column headerText="Estado Procesal"></p:column>
+				</p:dataTable>
+				
+			</p:tab>
+			<p:tab title="Junta Especial 3">
+			
+				<p:outputPanel deferred="true">
+					<h3>Contenido de Juicios de la Junta Especial 3</h3>
+				</p:outputPanel>
+				<p:dataTable>
+					<p:column headerText="Expediente"></p:column>
+					<p:column headerText="Observaciones"></p:column>
+					<p:column headerText="Estado Procesal"></p:column>
+				</p:dataTable>
+				
+			</p:tab>
+			<p:tab title="Junta Especial 4">
+			
+				<p:outputPanel deferred="true">
+					<h3>Contenido de Juicios de la Junta Especial 4</h3>
+				</p:outputPanel>
+				<p:dataTable>
+					<p:column headerText="Expediente"></p:column>
+					<p:column headerText="Observaciones"></p:column>
+					<p:column headerText="Estado Procesal"></p:column>
+				</p:dataTable>
+				
+			</p:tab>
+		</p:accordionPanel>		
+	</h:form>
 	
 </h:body>
 </html>
