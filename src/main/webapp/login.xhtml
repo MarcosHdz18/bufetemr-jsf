@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<!-- <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Sistema de Juicios BMR</title>
+</h:head>
+<h:body>
+	
+	<h1 style="text-align: center;">Sistema de Juicios Bufete Martínez Reyna</h1>
+	
+	<div class="ui-fluid">
+		<h:form id="formLogin">
+			
+			<p:growl id="growl"></p:growl>
+			<p:focus context="pnlGridLogin"></p:focus>
+			
+			<p:panel id="pnlLogin" header="Inicio de Sesión" style="text-align: center;">
+			
+				<p:graphicImage style="float: right; position: absolute; margin-left: 200px;" name="images/juicio.jpg" width="25%"></p:graphicImage>
+				
+				<p:panelGrid id="pnlGridLogin" columns="2" columnClasses="ui-g-12 ui-md-2,ui-g-12 ui-md-4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" style="position: relative; height: 230px; padding-top: 50px">
+					
+					<p:outputLabel value="Usuario: "></p:outputLabel>
+					<p:inputText id="campoUsuario" value="#{loginController.usuario}" placeholder="Ingresa el usuario para entrar al sistema" required="true" requiredMessage="El usuario es requerido"></p:inputText>
+					
+					<p:outputLabel value="Contraseña "></p:outputLabel>
+					<p:password id="campoPassword" value="#{loginController.password}" placeholder="Ingresa la contraseña para entrar al sistema" required="true" requiredMessage="El password es requerido"></p:password>
+					
+					<p:outputLabel></p:outputLabel>
+					<p:commandButton value="Entrar" action="#{loginController.ingresar}" update="pnlGridLogin, growl"></p:commandButton>
+					
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+	</div>
+	
+</h:body>
+</html>
