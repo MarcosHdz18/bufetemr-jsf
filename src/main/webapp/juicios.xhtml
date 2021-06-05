@@ -11,9 +11,67 @@
 </h:head>
 <h:body>
 	
-	<h2 style="text-align: center;">Juicios Bufete Martínez Reyna</h2>
+	<h2 style="text-align: center; text-transform: uppercase;">Juicios Bufete Martínez Reyna</h2>
 	
-	
+	<h:form id="formLogin">
+		
+		<p:outputPanel deferred="true">
+			<h3>Descripción</h3>
+			<p>Lista de juicios del Bufete Martínez Reyna que se llevan a cabo en las diferentes Juntas Especiales de 
+			la Junta Federal de Conciliación y Arbitraje. Muestra el detalle de los juicios que se llevan a cabo.</p>
+		</p:outputPanel>
+		
+		<p:accordionPanel>
+			<p:tab title="Junta Especial 1">
+				
+				<p:outputPanel deferred="true">
+					<h3>Contenido de Juicios de la Junta Especial 1</h3>
+				</p:outputPanel>
+				<p:dataTable>
+					<p:column headerText="Expediente"></p:column>
+					<p:column headerText="Observaciones"></p:column>
+					<p:column headerText="Estado Procesal"></p:column>
+				</p:dataTable>
+				
+			</p:tab>
+			<p:tab title="Junta Especial 2">
+			
+				<p:outputPanel deferred="true">
+					<h3>Contenido de Juicios de la Junta Especial 2</h3>
+				</p:outputPanel>
+				<p:dataTable>
+					<p:column headerText="Expediente"></p:column>
+					<p:column headerText="Observaciones"></p:column>
+					<p:column headerText="Estado Procesal"></p:column>
+				</p:dataTable>
+				
+			</p:tab>
+			<p:tab title="Junta Especial 3">
+			
+				<p:outputPanel deferred="true">
+					<h3>Contenido de Juicios de la Junta Especial 3</h3>
+				</p:outputPanel>
+				<p:dataTable>
+					<p:column headerText="Expediente"></p:column>
+					<p:column headerText="Observaciones"></p:column>
+					<p:column headerText="Estado Procesal"></p:column>
+				</p:dataTable>
+				
+			</p:tab>
+			<p:tab title="Junta Especial 4">
+			
+				<p:outputPanel deferred="true">
+					<h3>Contenido de Juicios de la Junta Especial 4</h3>
+				</p:outputPanel>
+				<p:dataTable>
+					<p:column headerText="Expediente"></p:column>
+					<p:column headerText="Observaciones"></p:column>
+					<p:column headerText="Estado Procesal"></p:column>
+				</p:dataTable>
+				
+			</p:tab>
+		</p:accordionPanel>		
+	</h:form>
 	
 </h:body>
 </html>
