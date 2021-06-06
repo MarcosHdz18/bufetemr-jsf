@@ -78,6 +78,7 @@
 						<p:outputLabel value="#{juicio.observaciones}"></p:outputLabel>
 					</p:column>
 					<p:column headerText="Estado Procesal" style="text-align: center;" filterBy="#{juicio.estadoProcesal.descripcion}" filterMatchMode="contains" sortBy="#{juicio.estadoProcesal.descripcion}">
+<<<<<<< HEAD
 						<p:outputLabel style="font-weight: bold;" value="#{juicio.estadoProcesal.descripcion}"></p:outputLabel>						
 					</p:column>
 					<p:column headerText="Cuantificación">
@@ -87,6 +88,10 @@
 						<p:outputLabel value="PROBABILIDAD: "></p:outputLabel>
 						<p:outputLabel value="#{juicio.probabilidad}"></p:outputLabel>						
 					</p:column>
+=======
+						<strong><p:outputLabel value="#{juicio.estadoProcesal.descripcion}"></p:outputLabel></strong>						
+					</p:column>					
+>>>>>>> refs/remotes/origin/bufetemr-jsf-v1.1
 				</p:dataTable>
 				
 			</p:tab>
