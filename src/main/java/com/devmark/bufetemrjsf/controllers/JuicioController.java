@@ -42,6 +42,7 @@ public class JuicioController {
 	 */
 	@PostConstruct
 	public void init() {
+		System.out.println("Cargando información en pantalla.");
 		this.findAll();
 	}
 	

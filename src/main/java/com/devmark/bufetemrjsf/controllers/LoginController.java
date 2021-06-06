@@ -7,8 +7,11 @@ import java.io.IOException;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+
+import com.devmark.bufetemrjsf.dto.UsuarioDTO;
 
 /**
  * @author marcos.hernandez
@@ -29,10 +32,25 @@ public class LoginController {
 	 */
 	private String password;
 	
+	/**
+	 * Bean que mantendra la sesion del usuario.
+	 */
+	@ManagedProperty("#{sessionController}")
+	private SessionController sessionController;
+	
+	/**
+	 * Metodo que se utiliza para ingresar con el login de la pantalla login.xhtml.
+	 */
 	public void ingresar() {
 		if (this.getUsuario().equals("luis.hernandez") && this.getPassword().equals("123456")) {
 			try {
-				this.redireccionar("juicios.xhtml");
+				UsuarioDTO usuarioDTO = new UsuarioDTO();
+				usuarioDTO.setUsuario(this.getUsuario());
+				usuarioDTO.setPassword(this.getPassword());
+				
+				this.sessionController.setUsuarioDTO(usuarioDTO);
+				
+				this.redireccionar("federal.xhtml");
 			} catch (IOException e) {
 				FacesContext.getCurrentInstance().addMessage("formLogin:campoUsuario", 
 						new FacesMessage(FacesMessage.SEVERITY_FATAL, "Ups! Página no encontrada", ""));
@@ -79,6 +97,20 @@ public class LoginController {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	/**
+	 * @return the sessionController
+	 */
+	public SessionController getSessionController() {
+		return sessionController;
+	}
+
+	/**
+	 * @param sessionController the sessionController to set
+	 */
+	public void setSessionController(SessionController sessionController) {
+		this.sessionController = sessionController;
 	}
 
 }

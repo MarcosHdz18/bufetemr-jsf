@@ -5,15 +5,19 @@
 	xmlns:p="http://primefaces.org/ui">
 	
 <h:head>
-	<!-- <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Sistema de Juicios BMR</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&amp;display=swap" rel="stylesheet"/>
+	<h:outputStylesheet library="css" name="normalize.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
 </h:head>
 <h:body>
-	
-	<h1 style="text-align: center;">Sistema de Juicios Bufete Martínez Reyna</h1>
-	
-	<div class="ui-fluid">
+		
+	<div class="ui-fluid contenedor">
+		
+		<h1>Sistema de Juicios Bufete Martínez Reyna</h1>
+		
 		<h:form id="formLogin">
 			
 			<p:growl id="growl"></p:growl>
@@ -21,20 +25,31 @@
 			
 			<p:panel id="pnlLogin" header="Inicio de Sesión" style="text-align: center;">
 			
-				<p:graphicImage style="float: right; position: absolute; margin-left: 200px;" name="images/juicio.jpg" width="25%"></p:graphicImage>
 				
-				<p:panelGrid id="pnlGridLogin" columns="2" columnClasses="ui-g-12 ui-md-2,ui-g-12 ui-md-4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" style="position: relative; height: 230px; padding-top: 50px">
+				<div class="login">
 					
-					<p:outputLabel value="Usuario: "></p:outputLabel>
-					<p:inputText id="campoUsuario" value="#{loginController.usuario}" placeholder="Ingresa el usuario para entrar al sistema" required="true" requiredMessage="El usuario es requerido"></p:inputText>
+					<p:graphicImage name="images/juicio.jpg"></p:graphicImage>
 					
-					<p:outputLabel value="Contraseña "></p:outputLabel>
-					<p:password id="campoPassword" value="#{loginController.password}" placeholder="Ingresa la contraseña para entrar al sistema" required="true" requiredMessage="El password es requerido"></p:password>
-					
-					<p:outputLabel></p:outputLabel>
-					<p:commandButton value="Entrar" action="#{loginController.ingresar}" update="pnlGridLogin, growl"></p:commandButton>
-					
-				</p:panelGrid>
+					<p:panelGrid id="pnlGridLogin" columns="2" columnClasses="ui-g-12 ui-md-12,ui-g-12 ui-md-12" layout="grid" styleClass="ui-panelgrid-blank ui-fluid">
+						
+						<p:outputLabel value="Usuario: " style="font-weight: bold;"></p:outputLabel>
+						<p:inputText id="campoUsuario" value="#{loginController.usuario}" placeholder="Escribe el nombre de usuario" required="true" requiredMessage="El usuario es requerido"></p:inputText>
+						
+						<p:outputLabel value="Contraseña: " style="font-weight: bold;"></p:outputLabel>
+						<p:password id="campoPassword" value="#{loginController.password}" placeholder="Escribe la contraseña del usuario" required="true" requiredMessage="El password es requerido"></p:password>
+						
+						<p:outputLabel></p:outputLabel>
+						<p:commandButton value="Entrar" action="#{loginController.ingresar}" update="pnlGridLogin, growl"></p:commandButton>
+						
+					</p:panelGrid>
+				</div>
+				
+				
+				<f:facet name="footer">
+					<div align="center" class="footer-text">
+						<p:outputLabel value="Bufete Martínez Reyna. &#169;Todos los derechos reservados."></p:outputLabel>
+					</div>						
+				</f:facet>				
 			</p:panel>
 		</h:form>
 	</div>

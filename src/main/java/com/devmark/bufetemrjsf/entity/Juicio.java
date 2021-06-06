@@ -17,12 +17,12 @@ public class Juicio {
 	private Long idJuicio;
 	
 	/**
-	 * Descripcion del juicio - parte actora vs parte demandada
+	 * Parte demandada en el juicio
 	 */	
 	private String parteDemandada;
 	
 	/**
-	 * Actor del juicio	
+	 * Parte actora en el juicio	
 	 */
 	private Actor parteActora;
 	
@@ -49,7 +49,13 @@ public class Juicio {
 	/**
 	 * Estado procesal del juicio	
 	 */
-	private EstadoProcesal estadoProcesal;
+	private String estadoProcesal;
+
+	/**
+	 * 
+	 */
+	public Juicio() {
+	}
 
 	/**
 	 * @param idJuicio
@@ -62,7 +68,7 @@ public class Juicio {
 	 * @param estadoProcesal
 	 */
 	public Juicio(Long idJuicio, String parteDemandada, Actor parteActora, String expediente, Double cuantificacion,
-			String probabilidad, String observaciones, EstadoProcesal estadoProcesal) {
+			String probabilidad, String observaciones, String estadoProcesal) {
 		this.idJuicio = idJuicio;
 		this.parteDemandada = parteDemandada;
 		this.parteActora = parteActora;
@@ -174,14 +180,14 @@ public class Juicio {
 	/**
 	 * @return the estadoProcesal
 	 */
-	public EstadoProcesal getEstadoProcesal() {
+	public String getEstadoProcesal() {
 		return estadoProcesal;
 	}
 
 	/**
 	 * @param estadoProcesal the estadoProcesal to set
 	 */
-	public void setEstadoProcesal(EstadoProcesal estadoProcesal) {
+	public void setEstadoProcesal(String estadoProcesal) {
 		this.estadoProcesal = estadoProcesal;
 	}
 	
